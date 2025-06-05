@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>single elements</title>
+</head>
+<body>
+    <div class="card-header">
+        <h3 class="card-title h3" id="title">To Do List</h3>
+        <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt asperiores provident animi est dolor mollitia cum reiciendis consectetur deleniti tempora?</p>
+    </div>
+
+    <ul id="gorev-list">
+        <li>1.görev</li>
+        <li>2.görev</li>
+        <li>3.görev</li>
+        <li>4.görev</li>
+    </ul>
+
+    <script>
+        let sonuc;
+
+        sonuc=document.getElementById("title");//direkt id'si tittle olan elemanı aldık yani h3 etiketini
+        sonuc=document.getElementById("title").id;//sadece id'sini alırız
+        sonuc=document.getElementById("title").className;//class'ına ulaşmış oluruz
+        sonuc=document.getElementById("title").classList;//class'ları birden fazlaysa liste olarak almamızı sağlar
+
+        document.getElementById("title").style.fontSize="60px";
+        document.getElementById("title").style.color="blue";
+        //document.getElementById("title").style.display="none"; bu şekilde ortadan da kaldırabiliriz
+
+        document.getElementById("title").innerText="YENİ BİR BAŞLIK";//bu direkt içine yazı eklememizi sağlar
+        document.getElementById("title").innerHTML="<h2>Alt Başlık</h2>";//bu da içine html kodları eklememizi sağlıyor
+
+        sonuc=document.querySelector("#title");//bu şekilde de seçimler yapabiliriz
+        sonuc=document.querySelector(".lorem");//direkt css'deki gibi ulaşıyoruz
+        sonuc=document.querySelector("div");//query selector sadece bir tane seçimi gösterir aynı istenenden birden fazla varsa ilk olanı alır
+
+        sonuc=document.querySelector("#gorev-list");
+        sonuc=document.querySelector("li:first-child");
+        sonuc=document.querySelector("li:last-child");//direkt görmek için birkç boşluk bırakmamız gerekiyor
+        sonuc=document.querySelector("li:nth-child(2)");   
+
+
+
+        console.log(sonuc);
+    </script>
+</body>
+</html>
