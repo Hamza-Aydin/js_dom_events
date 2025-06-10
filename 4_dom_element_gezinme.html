@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>elementler üzerinde gezinme</title>
+</head>
+<body>
+    <div class="card-header">
+        <h3 class="card-title h1" id="title">dom traversing</h3>
+    </div>
+    <ul id="task-list">
+        
+        <li class="task">görev 1 <input type="checkbox" id="görev-1"></li>
+        <li class="task">görev 2 <input type="checkbox" id="görev-2"></li>
+        <li class="task">görev 3 <input type="checkbox" id="görev-3"></li>
+    </ul>
+
+    <script>
+        let sonuc;
+
+        ul=document.getElementById("task-list");
+
+        //children,firtElementChild,lastElementChild
+        //parentElement
+
+        sonuc=ul.children;
+        sonuc=ul.children[2];
+        sonuc=ul.firstElementChild;
+        sonuc=ul.lastElementChild;//buradaki büyük harf ayrıntıları önemli
+
+        sonuc=document.getElementById("title").parentElement;// bu şekilde parent'ına ulaşırız
+
+        sonuc=document.querySelector(".task");//quertselector sadece 1 değer tutuyordu
+        sonuc=document.querySelector(".task").nextElementSibling;//bu şekilde aynı klastaki bir diğer elemana ulaşırız
+
+        sonuc=document.getElementById("task-list").children[0].children[0].checked="true";//bu şekilde child'lar arasında gezinebiliriz
+        console.log(sonuc);
+    </script>
+    
+</body>
+</html>
