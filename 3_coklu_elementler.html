@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>çoklu elementler</title>
+</head>
+<body>
+
+    <ul id="task-list1">
+        <li class="task">görev 1</li>
+        <li class="task">görev 2</li>
+        <li class="task">görev 3</li>
+        <li class="task">görev 4</li>
+        <li class="task">görev 5</li>
+    </ul>
+        <ul id="task-list2">
+        <li class="task">görev 1</li>
+        <li class="task">görev 2</li>
+        <li class="task">görev 3</li>
+        <li class="task">görev 4</li>
+        <li class="task">görev 5</li>
+    </ul>
+
+    
+
+    <script>
+        let sonuc;
+
+        sonuc=document.getElementsByClassName("task");//tüm elemanları gösterir
+        sonuc=document.getElementsByClassName("task")[0];//bu şekilde istediğimiz indeksteki elemanlara ulaşabiliriz
+        sonuc=document.getElementsByClassName("task")[1];
+
+        let tasklist=document.getElementsByClassName("task");
+
+        let ul=document.getElementById("task-list2");//değişken tanımlama yapmasak da hata vermez
+        tasklist=ul.getElementsByTagName("li");//bu şekilde birden fazla li olan grup olsa da istediğimize ulaşmış oluruz
+        //yani illa document objesi üzerinde dolaşmamıza gerek yok
+        
+        tasklist=document.querySelectorAll("#task-list1 li");//bu çok daha partik olur
+
+        for(let i=0;i<tasklist.length;i++){ //böyle direkt döngü kullanrak her elemanı yazırabiliriz
+            console.log(tasklist[i]);
+        }
+
+        for(let i of tasklist){//bu şekilde de olur
+            i.style.color="red";
+            i.style.fontSize="20px";
+            //i.innerText="selamlar"; bu şekilde direkt maddeleri de değiştirebiliriz
+            console.log(i);
+        }
+
+
+        //console.log(sonuc);
+
+
+    </script>
+</body>
+</html>
