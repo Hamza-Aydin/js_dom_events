@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Element Silme ve Güncelleme</title>
+</head>
+<body>
+    
+    <div class="card-header">
+        <h3 class="card-title h1" id="title">dom traversing</h3>
+    </div>
+
+    <ul id="task-list">
+        <li class="task">görev 1 <input type="checkbox" id="görev-1" value="görev 1"></li>
+        <li class="task new">görev 2 <input type="checkbox" id="görev-2" value="görev 1"></li>
+        <li class="task">görev 3 <input type="checkbox" id="görev-3" value="görev 1"></li>
+    </ul>
+        <h3>Çalışma Tablosu</h3>
+        <ul id="calısma_gunleri">
+        
+        </ul>
+
+
+    <script>
+      
+    let sonuc;
+
+    //elementleri silme ve güncelleme
+    
+    //document.querySelector("#task-list").remove();direkt bu id'deki kısımların hepsini siler
+    //document.querySelector("#task-list").parentElement.remove(); bağlı olduğu parent'ını siler
+    //document.querySelector("#task-list").children[0].remove(); çocukları arasında istediklerimizi silmeye yarar
+
+    document.querySelector("#task-list").removeAttribute("class");//olsaydı class'ını silerdi
+    document.querySelector("#task-list").children[2].removeAttribute("class");//3.cocuğunun class'ı silindi
+
+    sonuc=document.querySelector("#task-list").children[1].getAttribute("class");//mevcut class'ını görüntüledik
+    document.querySelector("#task-list").children[1].setAttribute("class","yeni");
+    document.querySelector("#task-list").children[1].classList.add("bg-danger");
+    sonuc=document.querySelector("#task-list").children[1].classList[1];
+    //document.querySelector("#task-list").children[1].classList.remove("bg-danger");bu şekilde silinebilir
+    sonuc=document.querySelector("#task-list").children[1].classList.contains("bg-danger");
+    console.log(sonuc);
+    </script>
+
+</body>
+</html>
