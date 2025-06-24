@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element ekleme</title>
+</head>
+<body>
+    
+        <div class="card-header">
+            <h3 class="card-title h1" id="title">dom traversing</h3>
+        </div>
+
+    <ul id="task-list">
+        <li class="task">görev 1 <input type="checkbox" id="görev-1" value="görev 1"></li>
+        <li class="task">görev 2 <input type="checkbox" id="görev-2" value="görev 1"></li>
+        <li class="task">görev 3 <input type="checkbox" id="görev-3" value="görev 1"></li>
+    </ul>
+        <h3>Çalışma Tablosu</h3>
+        <ul id="calısma_gunleri">
+        
+        </ul>
+
+
+    <script>
+        //"use strict"; bunu tanımladığımızda js bazı tölere ettiği şeylere artık izin vermez.Mesela aşağıdaki ul'yi değişken seçici tanımlamadan tanımlanmasına.
+        let sonuc;
+
+
+        ul=document.getElementById("task-list");//tanımlama yapmasak da var ile tanımlanmış gibi algılar
+
+        let count=ul.children.length;
+        console.log(count);
+
+        let li=`<li class="task">görev ${count+1} <input type="checkbox" id="görev${count+1}" value="görev${count+1}"></li>`;
+        ul.insertAdjacentHTML("beforeend",li);//bunu w3school'dan bakabiliriz ayrıntılarına
+
+        //html kodları üzerinde olamayan verileri ekleyebilme
+
+        let gorevlistesi=["iş 1","iş 2","iş 3","iş 4"];
+
+        for(let index in gorevlistesi){
+            let newli=`<li class="task">${gorevlistesi[index]} <input type="checkbox" id="görev${count+1}" value="görev${count+1}"></li>`;
+            ul.insertAdjacentHTML("beforeend",newli);
+        }// bu şekilde direkt eklemeler yapabiliriz
+
+        x=document.getElementById("calısma_gunleri")
+        let gunler=[
+            {"gün":"pzrts","saat":8},
+            {"gün":"salı","saat":3},
+            {"gün":"crs","saat":4},
+            {"gün":"prs","saat":5},
+            {"gün":"cuma","saat":7},
+        ];
+        for(let i of gunler){
+            let list=`
+            <li>çalışılan gün:${i.gün} çalışma saati:${i.saat}</li>`;
+            x.insertAdjacentHTML("beforeend",list);
+        };//bu şekilde objelerden de döngüler yardımıyla veri çekebiliriz.
+
+    </script>
+
+</body>
+</html>
